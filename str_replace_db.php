@@ -20,7 +20,7 @@ if(file_exists('wp-config.php')){
 
 	/** MySQL database username */
 
-	define('DB_USER', '');
+	define('DB_USER', '');o
 
 	
 
@@ -68,9 +68,9 @@ if(file_exists('wp-config.php')){
 
 
 
-$search_for = 'onpointadv.com/wordpress/';
+$search_for = 'xxx';
 
-$replace_with = 'onpointadv.com.s68457.gridserver.com/';
+$replace_with = 'xxx';
 
 $undo = false; // true will reverse the 2 values above
 
