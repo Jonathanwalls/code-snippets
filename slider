@@ -1,0 +1,44 @@
+$( document ).ready(function() {
+  
+	//Slider settings
+	var fade_speed = 500; //Speed of fade effect between slides
+	var change_speed = 5000; //How often the images will change
+	var first_speed = 1000; //Delay of the first image appearing
+
+	var element_count = $('.bg-img-holder').length; //Count of the main container
+	var n = 0;
+	
+	$('.bg-img-holder:first').addClass('active');
+	
+	setTimeout(function() { //Fade in the first image after 1 second
+      $('.bg-img-holder:first').fadeTo( fade_speed, 1 );
+	}, first_speed);
+
+	setInterval(function() {
+	 	
+	 	if ( n == element_count - 1){
+	 		$('.bg-img-holder.active').fadeTo( fade_speed, 0 ).removeClass('active');
+	 		$('.bg-img-holder:first').fadeTo( fade_speed, 1 ).addClass('active');
+	 		n = 0;
+	 	}
+	 	else {
+	 		$('.bg-img-holder.active').fadeTo( fade_speed, 0 ).removeClass('active').next().fadeTo( fade_speed, 1 ).addClass('active');
+	 		n++;
+	 	}
+	
+	}, change_speed);
+
+});
+
+/////// CSS //////
+
+.bg-img-holder{
+	height:800px;
+	width:100%;
+	z-index:1;
+	position: absolute;
+	top:0;
+	margin:0;
+	padding:0;
+	opacity: 0;
+}
