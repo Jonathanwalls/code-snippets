@@ -11,7 +11,7 @@ $( document ).ready(function() {
 	$('.bg-img-holder:first').addClass('active');
 	
 	setTimeout(function() { //Fade in the first image after 1 second
-      $('.bg-img-holder:first').fadeTo( fade_speed, 1 );
+      $('.bg-img-holder:first').fadeTo( first_speed, 1 );
 	}, first_speed);
 
 	setInterval(function() {
