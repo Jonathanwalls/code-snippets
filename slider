@@ -3,9 +3,9 @@ $( document ).ready(function() {
 	//Slider settings
 	var fade_speed = 500; //Speed of fade effect between slides
 	var change_speed = 5000; //How often the images will change
-	var first_speed = 1000; //Delay of the first image appearing
+	var first_speed = 500; //Delay of the first image appearing
 
-	var element_count = $('.bg-img-holder').length; //Count of the main container
+	var element_count = $('.bg-img-holder').length; //Count of the background containers
 	var n = 0;
 	
 	$('.bg-img-holder:first').addClass('active');
@@ -16,16 +16,19 @@ $( document ).ready(function() {
 
 	setInterval(function() {
 	 	
-	 	if ( n == element_count - 1){
+	 	if ( element_count == 1 ){
+            //If there is only 1 slide, then load the slide and do nothing
+        }
+        else if ( n == element_count - 1){ //Resets the slide show if it reaches the last slide
 	 		$('.bg-img-holder.active').fadeTo( fade_speed, 0 ).removeClass('active');
 	 		$('.bg-img-holder:first').fadeTo( fade_speed, 1 ).addClass('active');
 	 		n = 0;
 	 	}
-	 	else {
+	 	else { //If the slide isn't the last slide, then advance to the next slide
 	 		$('.bg-img-holder.active').fadeTo( fade_speed, 0 ).removeClass('active').next().fadeTo( fade_speed, 1 ).addClass('active');
 	 		n++;
 	 	}
-	
+
 	}, change_speed);
 
 });
