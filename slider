@@ -45,3 +45,23 @@ $( document ).ready(function() {
 	padding:0;
 	opacity: 0;
 }
+
+
+//////////////// Sample PHP ////////////////
+
+<?php
+    $rows = get_field('bandb_background_images'); //Display background images
+    if($rows)
+    {
+        foreach($rows as $row)
+        {
+
+            $bg_img_link = $row['bandb_image_file'];
+
+            echo '<div class="bg-img-holder" style="background:url(' . $bg_img_link . ') no-repeat top center; background-size: cover; background-attachment: fixed;"></div>';
+        }
+        $background_img = true;
+    }
+
+    if ( $background_img == true && !is_page('Home')) echo '<div class="bg_push"></div>';
+    ?>
