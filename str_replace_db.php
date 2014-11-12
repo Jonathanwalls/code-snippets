@@ -20,7 +20,7 @@ if(file_exists('wp-config.php')){
 
 	/** MySQL database username */
 
-	define('DB_USER', '');o
+	define('DB_USER', '');
 
 	
 
